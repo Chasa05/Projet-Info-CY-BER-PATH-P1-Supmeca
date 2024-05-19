@@ -22,11 +22,7 @@ char grid[GRID_MAX_SIZE][GRID_MAX_SIZE];
 
 void initializeGrid(int gridSize, int numPlayers, Player *players, int numTargets) {
     
-    //choisir une taille de grille aléatoire entre 15 et 20
-    srand(time(NULL));
-    gridSize= rand()%6+15;
-    
-    
+
      // Initialiser la grille avec des espaces vides
     for (int i = 0; i < gridSize; i++) {
         for (int j = 0; j < gridSize; j++) {
@@ -104,8 +100,7 @@ void playGame(int gridSize, int numPlayers, int numRounds) {
     int numTargets;
     int roundScores[MAX_PLAYERS] = {0};
 
-    initializeGrid(gridSize, numPlayers, players, numTargets);
-
+    displayGrid(gridSize);
     // Boucle de jeu pour chaque manche
     for (int round = 1; round <= numRounds; round++) {
         printf("\nManche %d\n", round);
@@ -206,7 +201,10 @@ int main() {
     int gridSize, numPlayers, numRounds, numTargets;
     Player players;
     
-
+    //choisir une taille de grille aléatoire entre 15 et 20
+    srand(time(NULL));
+    gridSize= rand()%6+15;
+    
     printf("Bienvenue dans le jeu !\n");
     printf("Entrez le nombre de joueurs (max %d): ", MAX_PLAYERS);
     scanf("%d", &numPlayers);
