@@ -141,16 +141,20 @@ void playGame(int gridSize, int numPlayers, int numRounds) {
     Player players[MAX_PLAYERS];
     int roundScores[MAX_PLAYERS] = {0};
 
-    initializeGrid(gridSize, numPlayers, players);
-    displayGrid(gridSize);
-
-    // Boucle de jeu pour chaque manche
+     // Boucle de jeu pour chaque manche
     for (int round = 1; round <= numRounds; round++) {
+        
+        //choisir une taille de grille aléatoire entre 15 et 20
+        gridSize = rand() % 6 + 15;
+        initializeGrid(gridSize, numPlayers, players);
+        displayGrid(gridSize);
         printf("\nManche %d\n", round);
+        printf("Taille de la grille : %d\n", gridSize);
 
         // Assigner une cible à chaque joueur
         for (int i = 0; i < numPlayers; i++) {
-            players[i].target = targets[i];
+            int cible = rand() % 18;
+            players[i].target = targets[cible];
             printf("Joueur %d - Votre objectif est la cible %c\n", i+1, players[i].target);
         }
 
@@ -232,8 +236,8 @@ void playGame(int gridSize, int numPlayers, int numRounds) {
 int main() {
     int gridSize, numPlayers, numRounds;
     
-    //choisir une taille de grille aléatoire entre 15 et 20
     srand(time(NULL));
+    //choisir une taille de grille aléatoire entre 15 et 20
     gridSize = rand() % 6 + 15;
     
     printf("Bienvenue dans le jeu !\n");
