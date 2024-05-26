@@ -12,8 +12,8 @@ Il y a des priorités et un système de points.
 (NOTICE) UTILISER LE CODE :
 Télécharger le fichier .c
 Allez sur le terminal et allez au répertoire du fichier
-Tapez la commande gcc -o nom_executable nom_fichier.c
-Tapez enfin ./nom_executable
+Tapez la commande gcc -o cyberpath CYBERPATH.c
+Tapez enfin ./cyberpath
 
 
 
