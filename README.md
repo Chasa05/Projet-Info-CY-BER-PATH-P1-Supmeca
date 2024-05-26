@@ -9,6 +9,16 @@ Ce projet est un jeu en 2D dont la grille de jeu est semblable graphiquement à 
 Il se base sur la prédiction d'un nombre de déplacement et le déplacement en lui même vers une cible. 
 Il y a des priorités et un système de points.
 
+(NOTICE) UTILISER LE CODE :
+Télécharger le fichier .c
+Allez sur le terminal et allez au répertoire du fichier
+Tapez la commande gcc -o nom_executable nom_fichier.c
+Tapez enfin ./nom_executable
+
+
+
+
+
 
 ETAPE DU CODE :
 
