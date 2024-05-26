@@ -203,9 +203,10 @@ void movePlayer(Player *player, char direction, int gridSize, Player *players, i
         grid[newX][newY] = player->target;
     }
     
-    if (direction == 'f'|| direction == 'F'){  // si déclaré forfait, cette condition permet de désafficher le joueur 
+    else if (direction == 'f'|| direction == 'F'){  // si déclaré forfait, cette condition permet de désafficher le joueur 
         grid[player->pos.x][player->pos.y] = previousValue; // Restaurer la valeur précédente de la case
-        grid[newX][newY] = previousValue;
+        previousValue = ' ';
+        
     }
     
     
@@ -304,6 +305,10 @@ void playGame(int gridSize, int numPlayers, int numRounds) {
                 if (grid[players[i].pos.x][players[i].pos.y] == players[i].target) {
                     targetReached = 1;
                     printf("BRAVO ! vous avez atteint la cible !\n\n");
+                    struct timespec req;
+                    req.tv_sec = 2;
+                    req.tv_nsec = 0;
+                    nanosleep(&req, NULL);
                     break;
                 }
             }
