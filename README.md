@@ -54,6 +54,8 @@ Prédictions des déplacement: (à choisir)
 
 Effectuer un déplacment : (haut/h, bas/b, gauche/g, droite/d)
 
+Possibilité de déclarer forfait avec la touche f
+
 REGLE DE POINT : Si le joueurs atteint avec le bon nombre de coup, il gagne 2 points, si il l'atteint avec un nombre de coup inférieur à celui renseigné il perd un points, si il n'atteint pas sa cible à la fin de ses coups tous les autres joueurs gagne 1 points. Le gagnant est celui qui a le plus point.
 
 
