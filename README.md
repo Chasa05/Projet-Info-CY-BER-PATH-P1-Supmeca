@@ -86,11 +86,7 @@ On a su à ce moment que le tableau pourra poser plus de problème que prévu no
 Ensuite on a pensé à mettre les cibles en les attribuant aux joueurs. On a fait attention à ce qu'ils ne touchent pas les murs du bord.
 Les murs autours des cibles étaient une partie compliqué à mettre en place mais on a finalement réussi en faisant les 4 cas possibles.
 
- #  #
-#    #
 
-#    #
- #  #
 
 Pour l'esthétique de la grille on a mis des couleurs similaire à pacman.(On n'a pas eu besoin de mettre des "define de couleurs". 
 
