@@ -70,17 +70,14 @@ tab[][]    =    ([][][][][][][][][][][][][])
 On a finalement choisi une grille avec 1 caractère pour 1 case.
 
 #########################
-#	    #    #		 #      #
-##         e#		       ##
-#			                  #
-#			                  #
-#			                  #
-#	 1	                  #
-#			                 ##
-##		                  #
-#			                  #
-#			                  #
-#			  #        #      #
+#_	 #	        #
+#_       E#             #  
+#_                      #
+#_                      # 
+#_       1              #
+#_                      #
+#_                      #
+#_                      #
 #########################
 
 On a su à ce moment que le tableau pourra poser plus de problème que prévu notamment pour les murs des cibles.
@@ -89,7 +86,7 @@ On a su à ce moment que le tableau pourra poser plus de problème que prévu no
 Ensuite on a pensé à mettre les cibles en les attribuant aux joueurs. On a fait attention à ce qu'ils ne touchent pas les murs du bord.
 Les murs autours des cibles étaient une partie compliqué à mettre en place mais on a finalement réussi en faisant les 4 cas possibles.
 
-		      #    #
+	        #    #
 	       #A    B#
 
 	       #C    D#
