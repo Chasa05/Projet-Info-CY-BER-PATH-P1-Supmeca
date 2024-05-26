@@ -11,13 +11,13 @@ Il y a des priorités et un système de points.
 
 (NOTICE) UTILISER LE CODE :
 
-Télécharger le fichier .c
+-Télécharger le fichier .c
 
-Allez sur le terminal et allez au répertoire du fichier
+-Allez sur le terminal et allez au répertoire du fichier
 
-Tapez la commande gcc -o cyberpath CYBERPATH.c
+-Tapez la commande gcc -o cyberpath CYBERPATH.c
 
-Tapez enfin ./cyberpath
+-Tapez enfin ./cyberpath
 
 
 ETAPE DU CODE :
