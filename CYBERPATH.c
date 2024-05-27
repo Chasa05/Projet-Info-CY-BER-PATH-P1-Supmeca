@@ -99,18 +99,18 @@ void initializegrid(int gridSize, int numPlayers, Player *players) {
     // Placer les murs perpendiculaires aux bordures
     for (int i = 0; i < 2 ; i++){
         int r;
-        r = rand() % (gridSize - 2) + 1;
-        while (grid[1][r] == '#'){
+        r = rand() % (gridSize - 2) + 1;  // permet de déterminer une position aléatoire pour chaque mur de chaque bordure
+        while (grid[1][r] == '#'){          // au cas ou il y aurait deja le mur d'une cible, choisir un autre mur
             r = rand() % (gridSize - 2) + 1;
         }
-        grid[1][r] = '#'; // Mur supérieur
+        grid[1][r] = '#';           // Mur supérieur
         
         
         r = rand() % (gridSize - 2) + 1;
         while (grid[r][1] == '#'){
             r = rand() % (gridSize - 2) + 1;
         }
-        grid[r][1] = '#'; // Mur gauche
+        grid[r][1] = '#';               // Mur gauche
         
         
         r = rand() % (gridSize - 2) + 1;
@@ -124,7 +124,7 @@ void initializegrid(int gridSize, int numPlayers, Player *players) {
         while (grid[r][gridSize- 2] == '#'){
              r = rand() % (gridSize - 2) + 1;
         }
-        grid[r][gridSize- 2] = '#';  // Mur droit
+        grid[r][gridSize- 2] = '#';     // Mur droit
     
     }
     
@@ -145,23 +145,23 @@ void initializegrid(int gridSize, int numPlayers, Player *players) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void displaygrid(int gridSize) {
-    system("clear");  // Effacer le terminal (Linux)
+    system("clear");  // Effacer le terminal 
     for (int i = 0; i < gridSize; i++) {
         for (int j = 0; j < gridSize; j++) {
             if (grid[i][j] == '#') {
-                printf( "\033[36m" "%c " "\033[0m", grid[i][j]); 
+                printf( "\033[36m" "%c " "\033[0m", grid[i][j]);  // affiche tout les caractère # en cyan
                 
             }
             
             else if(grid[i][j] >='A' && grid[i][j]<='R') {
-                printf ("\033[33m" "%c " "\033[0m", grid[i][j]);
+                printf ("\033[33m" "%c " "\033[0m", grid[i][j]);  // affiche tout les caractère cible en jaune
             }
             
             else{
-                printf("%c ", grid[i][j]);
+                printf("%c ", grid[i][j]);  // affiche tout les autres caractères
             }
         }
-        printf("\n");
+        printf("\n");   // passe à la ligne suivante
     }
 }
 
@@ -191,21 +191,21 @@ void movePlayer(Player *player, char direction, int gridSize, Player *players, i
             break; // Sortir de la boucle si un obstacle est rencontré
         }
 
-        newX = nextX;
+        newX = nextX;   // les nouvelles coordonnés calculés sont stockés
         newY = nextY;
     }
     
     if (grid[newX][newY] == player->target) { // si cible atteinte
         grid[player->pos.x][player->pos.y] = previousValue; // Restaurer la valeur précédente de la case
         previousValue = grid[newX][newY]; // Sauvegarder la nouvelle valeur de la case
-        player->pos.x = newX;
-        player->pos.y = newY;
+        player->pos.x = newX;           // le joueur se déplace aux nouvelles coordonnés
+        player->pos.y = newY;           // le joueur se déplace aux nouvelles coordonnés
         grid[newX][newY] = player->target;
     }
     
     else if (direction == 'f'|| direction == 'F'){  // si déclaré forfait, cette condition permet de désafficher le joueur 
         grid[player->pos.x][player->pos.y] = previousValue; // Restaurer la valeur précédente de la case
-        previousValue = ' ';
+        previousValue = ' ';        // garde un espace vide en mémoire pour le premier déplacement du prochain joueur
         
     }
     
@@ -214,8 +214,8 @@ void movePlayer(Player *player, char direction, int gridSize, Player *players, i
         // Mettre à jour la grid
         grid[player->pos.x][player->pos.y] = previousValue; // Restaurer la valeur précédente de la case
         previousValue = grid[newX][newY]; // Sauvegarder la nouvelle valeur de la case
-        player->pos.x = newX;
-        player->pos.y = newY;
+        player->pos.x = newX;       // le joueur se déplace aux nouvelles coordonnés
+        player->pos.y = newY;       // le joueur se déplace aux nouvelles coordonnés
         grid[newX][newY] = '1' + (player - players); // Mettre à jour la position du joueur sur la grid
     }
 }
@@ -294,7 +294,7 @@ void playGame(int gridSize, int numPlayers, int numRounds) {
                 
                 if (direction !='h' && direction !='H' && direction !='g' && direction !='G' && direction !='d' && direction !='D' && direction !='f' && direction !='F' && direction !='b' && direction !='B' ) {
                     printf("ATTENTION, coup invalide, rejouez\n\n");
-                    struct timespec req;
+                    struct timespec req;                                    // boucle de vérification des saisies
                     req.tv_sec = 2;
                     req.tv_nsec = 0;
                     nanosleep(&req, NULL);
@@ -357,7 +357,7 @@ int main() {
     scanf("%d", &numRounds);
     
     
-    while (numPlayers < 1 || numPlayers > MAX_PLAYERS || numRounds < 1 || numRounds > 99) {
+    while (getchar() != '\n' && numPlayers < 1 || numPlayers > MAX_PLAYERS || numRounds < 1 || numRounds > 99) { // boucle de vérification des saisies
         printf("\n\nSaisie invalide, veuillez recommencer \n\n\n");
         printf("Entrez le nombre de joueurs (max %d): ", MAX_PLAYERS);
         scanf("%d", &numPlayers);
